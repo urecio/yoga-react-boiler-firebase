@@ -14,26 +14,6 @@ import TextField from 'components/TextField';
 import styles from './styles';
 import { palette } from 'assets/styles/theme';
 
-import sexualAbuseImg from 'assets/img/sexual-abuse.png';
-import addictionImg from 'assets/img/addiction.png';
-import anxietyImg from 'assets/img/anxiety.png';
-import counsellingImg from 'assets/img/counselling.png';
-import depressionImg from 'assets/img/depression.png';
-import eatingImg from 'assets/img/eating-disorders.png';
-import panicImg from 'assets/img/panic.png';
-import griefImg from 'assets/img/grief.png';
-
-const applicationServiceGroups = [
-  { id: 'COUNSELLING', displayName: 'Counselling', image: counsellingImg },
-  // { id: 'GRIEF', displayName: 'Grief', image: griefImg },
-  // { id: 'SEXUAL', displayName: 'Sexual abuse', image: sexualAbuseImg },
-  // { id: 'ADDICTION', displayName: 'Addiction', image: addictionImg },
-  // { id: 'ANXIETY', displayName: 'Anxiety', image: anxietyImg },
-  // { id: 'DEPRESSION', displayName: 'Depression', image: depressionImg },
-  // { id: 'EATING', displayName: 'Eating disorders', image: eatingImg },
-  // { id: 'PANIC', displayName: 'Panic', image: panicImg },
-]
-
 export default class LoginFormComponent extends React.PureComponent {
 
   static propTypes = {
@@ -44,7 +24,6 @@ export default class LoginFormComponent extends React.PureComponent {
     username: '',
     password: '',
     errors: {},
-    asg: 'COUNSELLING', // counselling by default as we only have one for now
     submitted: false,
   }
 
@@ -73,12 +52,9 @@ export default class LoginFormComponent extends React.PureComponent {
     e.preventDefault();
     // getting data from fields
     this.setState({ submitted: true });
-    const { username, password, asg } = this.state;
+    const { username, password } = this.state;
 
-    // validating
-    if (!this.state.asg)
-      notify.show('Please, select an application', 'error');
-    else this.props.onLogin(
+    this.props.onLogin(
       username, password, asg
     );
   }
@@ -86,21 +62,6 @@ export default class LoginFormComponent extends React.PureComponent {
   render() {
     return (
       <styles.components.StyledForm onSubmit={this.onSubmit}>
-        <section className="asg-container">
-          {
-            applicationServiceGroups.map(asg =>
-              <div className="asg" key={asg.id}>
-                <button
-                  type="button"
-                  onClick={(e) => this.setState({ asg: asg.id })}
-                  className={ this.state.asg === asg.id ? 'selected' : '' }
-                >
-                  <img src={asg.image} alt={`${asg.displayName} logo`}/>
-                  <p>{asg.displayName}</p>
-                </button>
-              </div>)
-          }
-        </section>
         <TextField
           hintStyle={styles.inline.loginTextFieldHint}
           inputStyle={styles.inline.loginTextInput}

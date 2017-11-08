@@ -5,16 +5,6 @@
  * code.
  */
 
-// TODO:
-// add rtc and wait for a message to come in from the counsellor
-// FIX token not refreshing
-// document the generator
-// mind that everything is contained within a card (all the content)
-// create reset password page (will accept a token on the url, and won't be valid on any other url)
-// create verify email page, it should redirect to the welcome page
-// create welcome page
-// create chat and video container
-
 // Needed for redux-saga es6 generator support
 import 'babel-polyfill';
 
@@ -26,19 +16,6 @@ import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 import 'sanitize.css/sanitize.css';
-
-// import opentok (will differ depending on the browser)
-const ua = window.navigator.userAgent;
-const trident = ua.indexOf('Trident/');
-let ieVersion;
-if (trident > 0) {
-  // IE 11 => return version number
-  const rv = ua.indexOf('rv:');
-  ieVersion = parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
-}
-
-if (ieVersion === 11) require('vendor/opentokIE.min.js'); // eslint-disable-line
-else require('vendor/opentok.min.js'); // eslint-disable-line
 
 // Import root app
 import App from 'containers/App';

@@ -6,7 +6,6 @@ import isString from 'lodash/isString';
 import invariant from 'invariant';
 import warning from 'warning';
 import createReducer from 'reducers';
-import RtcClient from 'utils/rtcClient';
 import cookie from 'react-cookie';
 
 import * as authActions from 'containers/Auth/actions';
@@ -87,10 +86,9 @@ function refreshToken(store) {
 function redirectToDashboardIfpossible(store, nextState, replace) {
   setRefreshTimeoutIfMissing(store);
 
-  if (!nextState.location.pathname.indexOf('passwordreset')
-    && !nextState.location.pathname.match(/dashboard\/?$/)) {
+  if (!nextState.location.pathname.match(/dashboard\/?$/)) {
     replace({
-      pathname: '/dashboard/welcome',
+      pathname: '/dashboard',
       state: { nextPathname: nextState.location.pathname },
     });
   }
@@ -107,10 +105,9 @@ function redirectToLogin(nextState, replace) {
 }
 
 function isAuthExpired() {
-  return cookie.load('auth') && cookie.load('auth').expiresAt <= Date.now();
+  if (!cookie.load('auth')) return true;
+  return cookie.load('auth').expiresAt <= Date.now();
 }
-
-export let rtcClient = null; // eslint-disable-line
 
 export function redirectToDashboardIfLoggedIn(store, nextState, replace) {
   if (nextState.location.pathname.indexOf('dashboard') === -1 && !isAuthExpired()) {
@@ -123,9 +120,6 @@ export function redirectToLoginIfNotLoggedIn(store, nextState, replace) {
   if (!isLoggedIn) {
     redirectToLogin(nextState, replace);
   } else {
-    // if it's logged in and rtc is not instantiated, we do it
-    if (isLoggedIn && !rtcClient) rtcClient = new RtcClient(store);
-
     redirectToDashboardIfpossible(store, nextState, replace);
   }
 }

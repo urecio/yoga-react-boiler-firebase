@@ -12,9 +12,10 @@ import IconButton from 'material-ui/IconButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+import menu from 'assets/img/menu.png';
 
 import styles from './styles';
-import menu from 'assets/img/menu.png';
+
 
 export default class DashboardHeaderMenuComponent extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 

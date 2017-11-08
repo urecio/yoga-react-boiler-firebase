@@ -5,8 +5,6 @@
  */
 
 import React, { PropTypes } from 'react';
-import videoUrl from 'assets/login-video.mp4';
-import logo from 'assets/img/logo.png';
 // styles
 
 import styles from './styles';
@@ -19,7 +17,7 @@ export default class Login extends React.PureComponent { // eslint-disable-line 
   render() {
     return (
       <styles.components.StyledLoginComponent>
-        <img src={logo} className="logo-mindsforlife" alt="Logo Mindsforlife" />
+        <img src="" className="logo-yoga-builder" alt="Logo Yoga builder" />
         <div className="filter"></div>
         <section className="login-box">
           <LoginFormComponent {...this.props} />

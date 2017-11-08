@@ -5,12 +5,8 @@
 /* ignore:true */
 import { getAsyncInjectors, redirectToDashboardIfLoggedIn, redirectToLoginIfNotLoggedIn } from 'utils/asyncInjectors';
 
-import ChatContainer from 'containers/Chat';
-
-import WelcomeContainer from 'containers/Welcome';
 import NotFoundPage from 'containers/NotFoundPage';
 import Login from 'containers/Auth/LoginContainer';
-import ResetPasswordContainer from 'containers/ResetPasswordContainer';
 import Dashboard from 'containers/Dashboard';
 /* ignore:false */
 

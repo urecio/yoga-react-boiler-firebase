@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { palette, custom } from 'assets/styles/theme';
-import background from 'assets/img/bg-login-and-logo.jpg';
-import backgroundOverlay from 'assets/img/background-dotted-overlay.png';
 
 export default {
   components: {
@@ -9,12 +7,7 @@ export default {
       height: 100vh;
       display: flex;
 
-      background-image: url(${background});
-      background-size: cover;
-
       .filter {
-        background-image: url(${backgroundOverlay});
-        background-repeat: repeat;
         width: 100%;
         height: 100%;
         position: absolute;

@@ -51,5 +51,8 @@ Some examples:
 ## TODO:
 
 # TOP PRIORITY
+* firebase layer will sit on Api.js
+* Login (cleanup async injectors) (check if refresh token is needed as an action)
 * add builder and list components (both accept an ashana list. List will have an onAddAshana which will add the ashana to the builder (via sagas and firebase))
 * cleanup styles on global and theme
+* Add favicon

@@ -21,12 +21,7 @@ export default class Dashboard extends React.Component { // eslint-disable-line 
 
   static propTypes = {
     children: PropTypes.object,
-    getMySessions: PropTypes.func.isRequired,
   };
-
-  componentDidMount() {
-    this.props.getMySessions();
-  }
 
   render() {
     return (

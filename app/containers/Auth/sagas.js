@@ -9,10 +9,11 @@ function* login(action) {
     const response = yield call(api.login, action.payload);
     yield put(actions.loginResponse(response));
 
-    browserHistory.push('/dashboard/welcome');
+    browserHistory.push('/dashboard');
   } catch (error) { console.error('error on login'); }
 }
 
+// TODO: check if this is needed when using firebase
 function* refreshToken() {
   try {
     const response = yield call(api.refreshToken, true);

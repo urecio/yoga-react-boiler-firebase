@@ -8,7 +8,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import AppBar from 'material-ui/AppBar';
-import mindsforlifeLogo from 'assets/img/mindsforlife-logo-white.png';
 
 import styles from './styles';
 
@@ -23,7 +22,7 @@ class DashboardHeader extends React.PureComponent { // eslint-disable-line react
       <AppBar
         style={styles.inline.header.appbar}
         iconStyleLeft={styles.inline.header.appBarLeftIcon}
-        iconElementLeft={<Link to="/dashboard/chat"><img src={mindsforlifeLogo} alt="Mindsforlife logo" height="25px" /></Link>}
+        iconElementLeft={<Link to="/dashboard/chat"><img src="" alt="Yoga builder logo" height="25px" /></Link>}
         iconElementRight={this.props.iconElementRight}
       />
     );
