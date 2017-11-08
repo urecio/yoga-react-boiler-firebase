@@ -1,0 +1,16 @@
+import React, { PropTypes } from 'react';
+
+export default class {{ properCase name }} extends React.{{{ component }}} { // eslint-disable-line react/prefer-stateless-function
+
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+  };
+
+  render() {
+    return (
+      <div>
+        {{ properCase name }} component
+      </div>
+    );
+  }
+}
