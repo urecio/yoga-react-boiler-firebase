@@ -1,10 +1,10 @@
 // import { takeLatest, call, put } from 'redux-saga/effects';
 
 // Individual exports for testing
-export function* defaultSaga() {
-}
+// export function* defaultSaga() {
+// }
 
 // All sagas to be loaded
 export default [
-  defaultSaga,
+  // defaultSaga,
 ];
